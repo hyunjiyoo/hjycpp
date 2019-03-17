@@ -24,5 +24,6 @@ int main() {
 	char getName[11];
 	cin.getline(getName, 11, '\n');
 	cout << "당신의 이름은 " << getName << "입니다." << endl;
-
+	
+	return 0;
 }
