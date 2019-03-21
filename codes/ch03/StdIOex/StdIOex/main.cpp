@@ -17,24 +17,23 @@ int main() {
 	cout << "당신의 이름은 " << name << " 입니다." << endl;
 
 	// 2.입력 연습
-	cout << "너비 : ";
-	int width;
-	cin >> width;
-	cout << "높이 : ";
-	int height;
-	cin >> height;
-	cout << "면적 : " << width * height << endl;
+	//cout << "너비 : ";
+	//int width;
+	//cin >> width;
+	//cout << "높이 : ";
+	//int height;
+	//cin >> height;
+	//cout << "면적 : " << width * height << endl;
 
 	// 1.출력 연습
-	int n = 3; char c = '#';
-	cout << c << 5.5 << '-' << endl;
-	// boolalpha : 'true'를 1로 나타내지않고 'true' 그대로 출력.
-	cout << boolalpha << true << "hello world" << endl;
-	cout << "n + 5 = " << n + 5 << endl;
-	// area(n) : 함수의 call
-	cout << "면적은 " << area(n) << endl;
-	cout << "stdio ex" << endl;
-
+	//int n = 3; char c = '#';
+	//cout << c << 5.5 << '-' << endl;
+	//// boolalpha : 'true'를 1로 나타내지않고 'true' 그대로 출력.
+	//cout << boolalpha << true << "hello world" << endl;
+	//cout << "n + 5 = " << n + 5 << endl;
+	//// area(n) : 함수의 call
+	//cout << "면적은 " << area(n) << endl;
+	//cout << "stdio ex" << endl;
 	return 0;
 }
 // 함수의 정의(definition)
