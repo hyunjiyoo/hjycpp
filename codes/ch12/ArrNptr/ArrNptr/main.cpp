@@ -6,13 +6,13 @@ int main() {
 	short* ps1 = &sArr[3];
 	short* ps2 = &sArr[7];
 
-	cout << &sArr[0] << endl;
-	cout << &sArr[1] << endl;
-	cout << &sArr[2] << endl;
-	cout << &sArr[3] << endl;
-	cout << ps1 << endl;
-	cout << ps2 << endl;
-	cout << ps2 - ps1 << endl; // 8 / 2byte 해야함(short사이즈라서 2byte 나눈다)
+	cout << "&Arr[0]: " << &sArr[0] << endl; 
+	cout << "&Arr[1]: " << &sArr[1] << endl;
+	cout << "&Arr[2]: " << &sArr[2] << endl; 
+	cout << "&Arr[3]: " << &sArr[3] << endl;
+	cout << "ps1: " << ps1 << endl; 
+	cout << "ps2: " << ps2 << endl; 
+	cout << "ps2 - ps1: " << ps2 - ps1 << endl; // 8 / 2byte 해야함(short사이즈라서 2byte 나눈다)
 
 	cout << "----------------------------------------------------" << endl;
 
@@ -29,7 +29,7 @@ int main() {
 	int j;
 	int* ip = &j;
 	cout << ip << endl;
-	ip = ip + 1; // ip는 4byte만큼 증가
+	ip = ip + 2; // ip는 8byte만큼 증가
 	cout << ip << endl;
 	ip = ip - 1; // ip는 4byte만큼 감소
 	cout << ip << endl;

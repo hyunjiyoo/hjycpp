@@ -10,14 +10,38 @@ int main() {
 	cout << "2.배열명을 사용한 poiter 표현: " << endl;
 	cout << "3.포인터변수를 사용한 pointer 표현: " << endl;
 	cout << "p: " << p << endl;
-	cout << "4.포인터변수를 사용한 index 표현: " << endl;
+	cout << "4.포인터변수를 사용한 index 표현: " << endl << endl;
 
-	// *(p+i)
-	// p + i 를 보이고 요소 하나하나를  i*i*i로 채우기
+	// 1. 배열명을 사용한 index 표현: A[i]
 	for (int i = 0; i < 10; i++) {
-		cout << "p + " << i << ": " << p + i << endl;
-		cout << "*(p + " << i << "): " << *(p + i) << '\n' << endl;
-		*(p + i) = i*i*i;
+		A[i] = i;
+	}
+	for (int i = 0; i < 10; i++) {
+		cout << A[i] << " ";
+	}
+	cout << endl;
+
+	// 2. 배열명을 사용한 pointer 표현: *(A + i)
+	for (int i = 0; i < 10; i++) {
+		*(A + i) = i * i;
+	}
+	for (int i = 0; i < 10; i++) {
+		cout << A[i] << " ";
+	}
+	cout << endl;
+
+	// 3. 포인터변수를 사용한 pointer 표현: *(p + i)
+	for (int i = 0; i < 10; i++) {
+		*(p + i) = i * i * i;
+	}
+	for (int i = 0; i < 10; i++) {
+		cout << A[i] << " ";
+	}
+	cout << endl;
+
+	// 4. 포인터변수를 사용한 index 표현: p[i]
+	for (int i = 0; i < 10; i++) {
+		p[i] = i * i * i * i;
 	}
 	for (int i = 0; i < 10; i++) {
 		cout << A[i] << " ";
