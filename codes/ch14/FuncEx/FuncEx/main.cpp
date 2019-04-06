@@ -3,18 +3,21 @@ using namespace std;
 
 // 1. 매개변수 전달방식 3가지
 void sub(int i, int* p, int& r);
+
 // 2. a와 b를 합하고 곱해서 값 가져온다
 void add_mul(int a, int b, int* p1, int* p2);
 void add_mul_by_ref(int a, int b, int& r1, int& r2);
+
 // 3. swap (값 교환)
 void swap_call_by_val(int x, int y);
 void swap_call_by_ptr(int* xp, int* yp);
 void swap_call_by_ref(int& xr, int& yr);
+
 // 4. 배열 넘길땐 call by ptr
 // 배열 넘길 때 size도 같이 넘기는 게 좋음. (int배열인 경우) -> 포인터만 오고 요소의 개수는 모르기때문
-void usingArr(char A[]);
-int main() {
+void usingArr(char* p);
 
+int main() {
 	cout << "------------------------------" << endl << "1. 매개변수 전달방식 3가지" << endl << endl;
 	// 1. 매개변수 전달방식 3가지
 	int a = 10, b = 20, c = 30;
@@ -31,7 +34,6 @@ int main() {
 	add_mul(x, y, &add_value, &mul_value);
 	cout << "add_value: " << add_value << endl;
 	cout << "mul_value: " << mul_value << endl;
-
 
 	cout << "------------------------------" << endl << "3. call by ref" << endl << endl;
 	// 3. call by ref
@@ -103,9 +105,7 @@ void swap_call_by_ref(int& xr, int& yr)
 	xr = tmp;
 }
 
-void usingArr(char p[])
+void usingArr(char* p)
 {
 	*(p + 12) = '?';
-	cout << p[12] << endl;
-	p[12] = '##';
 }
