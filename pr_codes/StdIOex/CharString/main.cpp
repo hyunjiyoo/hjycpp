@@ -11,7 +11,7 @@ int main() {
 	*/
 
 	char test[6]; // 5개의 문자를 저장할 수 있는 char 배열
-	cin >> test; // 키보드에서 문자열 읽어 name 배열에 저장
+	cin >> test; // 키보드에서 문자열 읽어 test 배열에 저장
 
 	// cin을 이용한 문자열 입력
 	cout << "이름을 입력하세요: ";
@@ -24,6 +24,6 @@ int main() {
 	char getName[11];
 	cin.getline(getName, 11, '\n');
 	cout << "당신의 이름은 " << getName << "입니다." << endl;
-	
+
 	return 0;
 }
