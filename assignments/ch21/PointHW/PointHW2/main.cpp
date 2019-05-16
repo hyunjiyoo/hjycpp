@@ -7,77 +7,71 @@ public:
 	// 멤버 변수
 	int x;
 	int y;
-
 	// 생성자
 	Point();
 	Point(int initX, int initY);
 	Point(const Point &p);
-
 	//소멸자
 	~Point();
-
 	// 일반적인 멤버 함수
 	void Print();
 };
-
 // 인자 없는 생성자, Point 객체 선언시 자동으로 호출되는 멤버함수
 Point::Point() {
 	cout << "인자 없는 생성자" << endl;
-	this->x = 0;		// x = 0;와 같다
-	this->y = 0;		// y = 0;와 같다
+	this->x = 0;
+	this->y = 0;
 }
-
 // 인자 있는 생성자, Point 객체를 인수로 초기화할 때 호출되는 멤버함수
 Point::Point(int initX, int initY) {
 	cout << "인자 있는 생성자" << endl;
-	this->x = initX;	// x = initX;와 같다
-	this->y = initY;	// y = initY;와 같다
+	this->x = initX;
+	this->y = initY;
 }
-
 // 복사 생성자, Point 객체를 Point 객체의 레퍼런스 인수로 초기화 할 때 호출되는 멤버함수
 Point::Point(const Point &p) {
 	cout << "복사 생성자" << endl;
-	this->x = p.x;		// x = p.x;와 같다
-	this->y = p.y;		// y = p.y;와 같다
+	this->x = p.x;
+	this->y = p.y;
 }
-
 // 소멸자, 정적 객체는 선언한 곳의 함수가 종료될 때 자동으로 호출되는 멤버함수
 Point::	~Point() {
 	cout << "소멸자" << endl;
 }
-
 // Point의 멤버변수 x와 y의 값을 출력하는 멤버함수
 void Point::Print() {
 	cout << "(" << x << ", " << y << ")" << endl;
 }
 // 위는 ADT(추상자료형) Point 정의, 코드를 수정하지 말 것
 
+
+
 // 아래부터 Point라는 ADT를 사용하는 클라이언트 시작...클라이언트 부분을 완성하는 것이 과제
 // 함수의 원형 선언
 void PrintMenu();
-void MakePoint(Point* Arr, int& indexR, int size);
+void MakePoint(Point* Arr, int* indexPtr, int size);
 void UpdatePoint(Point* Arr, int index);
 void InquirePoint(Point* Arr, int index);
 // 상수 선언
 enum {
-	MAKE = 1,	//    MAKE라고 쓰면 1으로 인식한다
-	UPDATE,		//  UPDATE라고 쓰면 2으로 인식한다
-	INQUIRE,	// INQUIRE라고 쓰면 3으로 인식한다
-	EXIT		//    EXIT라고 쓰면 4으로 인식한다
+	MAKE = 1,
+	UPDATE,
+	INQUIRE,
+	EXIT
 };
 // main함수에서 Point 객체를 담는 정적 배열을 선언하고 인터페이스를 작성한다
 int main() {
-	int index = 0;			// index는 Point배열 Arr에서 Point 객체가 채워질 위치
-	const int SIZE = 10;	// SIZE는 Arr의 크기
-	Point Arr[SIZE];		// 인자 없는 생성자가 SIZE만큼 불려진다
-	int choice;				// 사용자가 선택한 기능 번호를 저장할 변수
-	while (true) {			// EXIT하지 않는다면 반복해서 실행한단
-		PrintMenu();		// 선택 메뉴 출력하는 함수 호출
+	int index = 0;
+	const int SIZE = 10;
+	Point Arr[SIZE];
+	int choice;
+	while (true) {
+		PrintMenu();
 		cout << "선택:";
-		cin >> choice;		// 선택하고 싶은 기능을 정수로 받는다
-		switch (choice) {	// 선택한 기능을 실행한다
+		cin >> choice;
+		switch (choice) {
 		case MAKE:
-			MakePoint(Arr, index, SIZE);
+			MakePoint(Arr, &index, SIZE);
 			break;
 		case UPDATE:
 			UpdatePoint(Arr, index);
@@ -105,30 +99,45 @@ void PrintMenu() {
 }
 
 // index 위치에 있는 Point 배열의 객체에 접근해서 그 객체의 멤버 변수의 값을 채워주는 함수
-void MakePoint(Point* Arr, int& indexR, int size) {
+void MakePoint(Point* Arr, int* indexPtr, int size) {
 	cout << "MakePoint() 호출" << endl;
-	if (indexR >= size) {
-		cout << "Arr의 SIZE가 꽉 찼습니다." << endl << endl;
+	if (*indexPtr >= size) {
+		cout << "Arr이 가득 찼습니다" << endl;
 		return;
 	}
-	cout << "(x, y)를 입력하세요: ";
-	cin >> Arr[indexR].x; cin >> Arr[indexR].y;
-	indexR++;
+	else {
+		int inputX, inputY;
+		cout << "x 값 입력:";
+		cin >> inputX;
+		cout << "y 값 입력:";
+		cin >> inputY;
+
+		Arr[*indexPtr].x = inputX;
+		Arr[*indexPtr].y = inputY;
+		++*indexPtr;
+	}
 }
 
 // Point 배열에서 원하는 위치의 객체에 접근해서 그 멤버변수의 값을 갱신하는 함수
 void UpdatePoint(Point* Arr, int index) {
 	cout << "UpdatePoint() 호출" << endl;
-	while(1) {
-		cout << "원하는 위치가 어디입니까: ";
-		int i; cin >> i;
-		if (i >= index + 1) {
-			cout << "더 작은 수를 입력해주세요." << endl;
-			continue;
-		}
-		cout << "원하는 값을 입력하세요: ";
-		cin >> Arr[i-1].x >> Arr[i-1].y;
-		Arr[i-1].Print();
+	int loc;
+	cout << "위치 입력:";
+	cin >> loc;
+
+	if (0 <= loc && loc < index) {
+		int inputX, inputY;
+		cout << "x 값 입력:";
+		cin >> inputX;
+		cout << "y 값 입력:";
+		cin >> inputY;
+
+		Arr[loc].x = inputX;
+		Arr[loc].y = inputY;
+	}
+	else {
+		cout << "입력한 위치의 객체는 만들어지지 않았습니다" << endl;
+		cout << "(현재 인덱스 위치: " << index << ")" << endl;
 		return;
 	}
 }
@@ -137,6 +146,7 @@ void UpdatePoint(Point* Arr, int index) {
 void InquirePoint(Point* Arr, int index) {
 	cout << "InquirePoint() 호출" << endl;
 	for (int i = 0; i < index; i++) {
+		cout << i << ": ";
 		Arr[i].Print();
 	}
 }

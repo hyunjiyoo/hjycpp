@@ -111,7 +111,6 @@ void Inquire(Account* act, int index) {
 }
 // 잘 모르겠음..
 void Exit(Account* act, int index) {
-	cin.clear();
 	for (int i = 0; i < index; i++) {
 		if (act[i].GetName() != NULL) {
 			delete[] act[i].GetName();

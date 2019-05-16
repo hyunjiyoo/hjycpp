@@ -11,7 +11,7 @@ public:
 	Account(int _id, int _balance, char* _name);
 	Account(const Account& ac);
 	~Account();
-	Account operator=(const Account& ac);
+	Account& operator=(const Account& ac);
 
 	void ShowAllData();
 	int InMoney(int val);

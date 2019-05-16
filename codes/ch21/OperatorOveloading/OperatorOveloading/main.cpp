@@ -12,7 +12,7 @@ public:
 	Power& operator=(const Power& obj); // 대입 연산자
 	bool operator==(const Power& obj); // == 연산자
 	Power operator+(const Power& obj); // + 연산자
-	Power& operator+=(int i); // += 얀신지 with int
+	Power& operator+=(int i); // += 연산자 with int
 	Power& operator+=(const Power& obj); // += 연산자
 };
 Power::Power() {

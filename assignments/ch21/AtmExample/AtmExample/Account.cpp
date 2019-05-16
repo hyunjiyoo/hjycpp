@@ -31,7 +31,7 @@ Account::~Account() {
 	delete[] this->name;
 	this->name = NULL;
 }
-Account Account::operator=(const Account& ac) {
+Account& Account::operator=(const Account& ac) {
 	cout << "깊은 대입 연산자" << endl;
 	if (this != &ac) {
 		delete[] this->name;
@@ -54,7 +54,7 @@ int Account::InMoney(int val) {
 }
 bool Account::OutMoney(int val) {
 	this->balance -= val;
-	if (val > balance)
+	if (val > this->balance)
 		return false;
 	else
 		return true;

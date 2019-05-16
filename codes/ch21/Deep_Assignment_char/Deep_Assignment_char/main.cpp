@@ -11,7 +11,7 @@ public:
 	Person(const Person& obj);
 	~Person();
 	Person& operator=(const Person& obj);
-	void Showdate();
+	void Showdata();
 
 };
 Person::Person() {
@@ -49,16 +49,16 @@ Person& Person::operator=(const Person& obj) {
 	}
 	return *this;
 }
-void Person::Showdate() {
+void Person::Showdata() {
 	cout << "name: " << name << " age: " << age << endl;
 }
 int main() {
 	Person P1("°­¹Î", 21);
-	P1.Showdate();
+	P1.Showdata();
 	Person P2("³ªµ¿¹Î", 24);
-	P2.Showdate();
+	P2.Showdata();
 	P1 = P2;
-	P1.Showdate();
+	P1.Showdata();
 
 	return 0;
 }
