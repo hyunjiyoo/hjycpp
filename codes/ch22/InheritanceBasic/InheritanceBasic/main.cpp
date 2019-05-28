@@ -38,7 +38,7 @@ void AAA::print() {
 class BBB :public AAA {
 private:
 	int d;
-	char name[18];
+	char name[18]; 
 public:
 	int pub;
 	void func() {
@@ -67,8 +67,8 @@ void BBB::print() {
 	cout << " pub: " << this->pub << endl;
 }
 int main() {
-	cout << "sizeof(AAA): " << sizeof(AAA) << endl; // 12
-	cout << "sizeof(BBB): " << sizeof(BBB) << endl; // 36 (char name[18] 에서 4의 배수로 메모리 생성됨. padding 때문에)
+	cout << "sizeof(AAA): " << sizeof(AAA) << endl; // 16
+	cout << "sizeof(BBB): " << sizeof(BBB) << endl; // 44 (char name[18] 에서 4의 배수로 메모리 생성됨. padding 때문에)
 	BBB b(100, "우민혁");
 	b.print();
 	b.AAA::print();

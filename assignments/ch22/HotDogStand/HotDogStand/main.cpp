@@ -20,8 +20,6 @@ int main() {
 		hd[i].setDayCnt(0);
 	}
 	
-	cin.clear(); cin.ignore();
-
 	while (true) {
 		cout << "가판대 ID 입력(종료를 원하시면 q나 Q 입력): ";
 		
@@ -48,7 +46,10 @@ int main() {
 	cout << "-------------------------------------" << endl;
 	cout << "총 판매량: " << hd->getTotCnt() << endl;
 
-	delete[] hd; hd = NULL;
+	if (hd != NULL) {
+		delete[] hd;
+		hd = NULL;
+	}
 
 	return 0;
 }
